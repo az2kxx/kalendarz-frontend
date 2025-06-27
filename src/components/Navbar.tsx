@@ -3,7 +3,7 @@ import { useAuth } from '../hooks/useAuth';
 import { motion } from 'framer-motion';
 
 export const Navbar = () => {
-  const { isAuthenticated, auth } = useAuth();
+  const { isAuthenticated } = useAuth();
 
   return (
     <motion.header
