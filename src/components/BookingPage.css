@@ -1,0 +1,178 @@
+/* --- Ogólne style strony --- */
+.booking-page {
+    padding: 1rem;
+    background-color: #f3f4f6;
+    min-height: 100vh;
+    color: #111827;
+  }
+  
+  .booking-container {
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+  
+  .booking-header {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .calendar-wrapper {
+    height: 80vh;
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: black; /* Reset koloru tekstu dla kalendarza */
+  }
+  
+  /* --- Style dla modala --- */
+  .modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  .modal-content {
+    background: #fff;
+    color: #000;
+    padding: 2rem;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  .modal-header {
+    margin-top: 0;
+  }
+  
+  .modal-form .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  .modal-form .form-label {
+    display: block;
+    margin-bottom: 4px;
+  }
+  
+  .modal-form .form-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Ważne dla responsywności inputów */
+  }
+  
+  .modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  
+  .modal-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s;
+  }
+  
+  .modal-button:disabled {
+      cursor: not-allowed;
+      opacity: 0.7;
+  }
+  
+  .modal-button-secondary {
+    background-color: #e5e7eb;
+  }
+  
+  .modal-button-secondary:hover {
+    background-color: #d1d5db;
+  }
+  
+  .modal-button-primary {
+    background-color: #2563eb;
+    color: white;
+  }
+  
+  .modal-button-primary:hover {
+    background-color: #1d4ed8;
+  }
+  
+  /* --- Style dla widoku potwierdzenia --- */
+  .confirmation-view .confirmation-header {
+      margin-top: 0;
+      color: #16a34a;
+  }
+  
+  .confirmation-view p {
+      margin: 0.5rem 0;
+  }
+  
+  .confirmation-view .confirmation-actions {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+  }
+  
+  /* --- Media Queries dla responsywności --- */
+  @media (max-width: 768px) {
+    .booking-header {
+      font-size: 1.75rem;
+    }
+  
+    .calendar-wrapper {
+      /* Na mobilce widoki tygodnia/dnia mogą wymagać przewijania w poziomie, co jest akceptowalne */
+      /* Użytkownik i tak najczęściej będzie korzystał z widoku miesiąca. */
+      overflow-x: auto;
+      padding: 0.5rem;
+    }
+  
+    /* Upewnijmy się, że sam kalendarz nie jest ściśnięty */
+    .rbc-calendar {
+      min-width: 600px; /* Zapobiega "złamaniu" się widoku tygodnia */
+    }
+  
+    .rbc-toolbar {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.5rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .booking-page {
+      padding: 0.5rem;
+    }
+    .booking-header {
+      font-size: 1.5rem;
+    }
+  
+    .modal-content {
+      padding: 1.5rem;
+    }
+  
+    /* Przyciski w modalu na małych ekranach będą pod sobą */
+    .modal-actions,
+    .confirmation-view .confirmation-actions {
+      flex-direction: column-reverse; /* "Anuluj" na dole, "Zarezerwuj" na górze */
+      gap: 0.75rem;
+    }
+  
+    .modal-actions .modal-button,
+    .confirmation-view .confirmation-actions .modal-button {
+        width: 100%;
+    }
+  }
