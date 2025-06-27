@@ -26,7 +26,7 @@ export const RegisterPage = () => {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900">
-      <div className="p-8 bg-white dark:bg-gray-800 rounded-lg shadow-md w-full max-w-md">
+      <div className="p-8 bg-white dark:bg-gray-800 rounded-lg shadow-md">
         <h1 className="text-2xl font-bold text-center mb-6 text-gray-900 dark:text-gray-100">Zarejestruj się</h1>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           <div>

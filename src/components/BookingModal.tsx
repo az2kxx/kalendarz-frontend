@@ -6,7 +6,7 @@ import { useQueries, useMutation, useQueryClient } from '@tanstack/react-query';
 import { format, parse, startOfWeek, getDay, eachDayOfInterval, endOfWeek, addMinutes, isBefore, startOfToday, startOfMonth, endOfMonth } from 'date-fns';
 import { pl } from 'date-fns/locale/pl';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
-import './BookingPage.css'; // <--- IMPORTUJ NOWY PLIK CSS
+import './BookingPage.css'; 
 
 import { getAvailableSlots, createBooking } from '../api/booking';
 import type { CreateBookingData, BookingConfirmation } from '../api/booking';
@@ -120,11 +120,10 @@ export const BookingPage = () => {
       queryKey: ['availableSlots', userId, format(day, 'yyyy-MM-dd')],
       queryFn: () => getAvailableSlots(userId!, format(day, 'yyyy-MM-dd')),
       enabled: !!userId && !isBefore(day, today),
-      staleTime: 1000 * 60 * 5, // Lepsza wydajność - dane są świeże przez 5 minut
+      staleTime: 1000 * 60 * 5, 
     })),
   });
   
-  // Uproszczone memoize - flatMap jest szybki, ale useMemo zapewnia, że referencja do `allAvailableSlots` nie zmienia się niepotrzebnie
   const allAvailableSlots = useMemo(() => 
     slotQueries.flatMap(query => query.data || [])
   , [slotQueries]);
@@ -142,7 +141,6 @@ export const BookingPage = () => {
     }
   };
   
-  // Dodajemy zabezpieczenie na wypadek braku userId
   if (!userId) {
     return <div className="booking-page">Nieprawidłowy użytkownik.</div>;
   }
@@ -173,13 +171,12 @@ export const BookingPage = () => {
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         startTime={selectedSlot}
-        userId={userId} // userId jest już sprawdzone, więc nie potrzebujemy '!'
+        userId={userId}
       />
     </div>
   );
 };
 
-// Funkcja pomocnicza pozostaje bez zmian
 const formatToICSDate = (date: Date): string => {
   return date.toISOString().replace(/[-:.]/g, '').slice(0, 15) + 'Z';
 };

@@ -1,4 +1,3 @@
-// App.tsx
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { BookingPage } from './pages/BookingPage';
 import { DashboardPage } from './pages/DashboardPage.tsx';

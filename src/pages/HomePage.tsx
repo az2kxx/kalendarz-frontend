@@ -129,7 +129,7 @@ export const HomePage = () => {
               </p>
               <div className="mt-8">
                 <Link to="/register" className="inline-block px-10 py-4 text-lg font-bold text-indigo-600 bg-white rounded-lg hover:bg-gray-100 shadow-lg transform hover:scale-105 transition-all duration-300">
-                  Zacznij wygrywać więcej
+                  Zacznij zdobywać więcej Leadów!
                 </Link>
               </div>
             </div>

@@ -74,7 +74,8 @@ export const AvailabilitySettings = () => {
         {fields.map((field, index) => {
             const isEnabled = watch(`availability.${index}.enabled`);
             return (
-                <div key={field.id} className="grid grid-cols-1 md:grid-cols-4 items-center gap-4 p-3 rounded-md border border-gray-200 dark:border-gray-700">
+                <div key={field.id} className="grid grid-cols-1 md:grid-cols-4 items-center gap-4 p-3 rounded-md border border-gray-200 dark:border-gray-700 rounded-lg
+">
                     <div className="md:col-span-1 flex items-center">
                         <input
                             type="checkbox"
